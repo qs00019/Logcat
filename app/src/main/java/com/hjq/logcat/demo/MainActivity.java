@@ -3,6 +3,7 @@ package com.hjq.logcat.demo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.hjq.bar.OnTitleBarListener;
 import com.hjq.bar.TitleBar;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements OnTitleBarListener {
 
@@ -30,7 +34,14 @@ public class MainActivity extends AppCompatActivity implements OnTitleBarListene
         mWebView = findViewById(R.id.wv_main_web);
         mWebView.setWebViewClient(new WebViewClient());
         mWebView.setWebChromeClient(new MyWebChromeClient());
-        mWebView.loadUrl("https://github.com/getActivity/Logcat");
+        mWebView.loadUrl("https://www.baidu.com");
+
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Log.i("Baby", "Test" );
+            }
+        }, 1000, 1000);
     }
 
     private class MyWebChromeClient extends WebChromeClient {

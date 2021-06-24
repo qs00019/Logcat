@@ -17,7 +17,7 @@
             android:name=".LogcatActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleInstance"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="behind" />
 
     </application>
 

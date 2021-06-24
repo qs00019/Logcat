@@ -33,6 +33,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -48,7 +49,8 @@ public final class LogcatActivity extends Activity
         CompoundButton.OnCheckedChangeListener, LogcatManager.Callback,
         AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener {
 
-    private final static String[] ARRAY_LOG_LEVEL = {"Verbose", "Debug", "Info", "Warn", "Error"};
+    private final static String[] ARRAY_LOG_LEVEL = {"V", "D", "I", "W", "E"};
+    private static List LOG_LEVEL_LIST = new ArrayList();
 
     private final static String FILE_TYPE = "Logcat";
     private final static String LOGCAT_TAG_FILTER_FILE = "logcat_tag_filter.txt";
@@ -75,6 +77,7 @@ public final class LogcatActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LOG_LEVEL_LIST = Arrays.asList(ARRAY_LOG_LEVEL);
         // 设置全屏显示
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.logcat_window_logcat);
@@ -264,7 +267,7 @@ public final class LogcatActivity extends Activity
         mAdapter.setKeyword(keyword);
         mAdapter.clearData();
         for (LogcatInfo info : mLogData) {
-            if ("V".equals(mLogLevel) || info.getLevel().equals(mLogLevel)) {
+            if ("V".equals(mLogLevel) || isShowLog(info.getLevel())) {
                 if (!"".equals(keyword)) {
                     if (info.getLog().contains(keyword) || info.getTag().contains(keyword)) {
                         mAdapter.addItem(info);
@@ -278,6 +281,17 @@ public final class LogcatActivity extends Activity
         mEmptyView.setVisibility("".equals(keyword) ? View.GONE : View.VISIBLE);
     }
 
+    private boolean isShowLog(String level) {
+        int logLevel = LOG_LEVEL_LIST.indexOf(level);
+        int currentLevel = LOG_LEVEL_LIST.indexOf(mLogLevel);
+        if(logLevel >= currentLevel){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
     private void setLogLevel(String level) {
         if (level.equals(mLogLevel)) {
             return;
@@ -336,7 +350,7 @@ public final class LogcatActivity extends Activity
                 return;
             }
 
-            if (info.getLevel().equals(mLogLevel)) {
+            if (isShowLog(info.getLevel())) {
                 if (info.getLog().contains(content) || info.getTag().contains(content)) {
                     mAdapter.addItem(info);
                 }

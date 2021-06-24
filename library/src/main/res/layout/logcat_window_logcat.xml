@@ -19,8 +19,8 @@
             android:id="@+id/iv_log_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:button="@drawable/logcat_bg_log_check"
             android:checked="false" />
 
@@ -28,25 +28,25 @@
             android:id="@+id/iv_log_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:src="@drawable/logcat_ic_save" />
 
         <TextView
             android:id="@+id/tv_log_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/logcat_bg_log_frame"
             android:drawableStart="@drawable/logcat_ic_filter"
             android:drawableLeft="@drawable/logcat_ic_filter"
-            android:drawablePadding="10dp"
-            android:paddingLeft="10dp"
+            android:drawablePadding="3dp"
+            android:paddingLeft="5dp"
             android:paddingTop="8dp"
-            android:paddingRight="10dp"
+            android:paddingRight="5dp"
             android:paddingBottom="8dp"
-            android:text="Verbose"
+            android:text="V"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
@@ -59,28 +59,30 @@
                 android:id="@+id/et_log_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/logcat_bg_log_frame"
                 android:cursorVisible="true"
                 android:drawableStart="@drawable/logcat_ic_search"
                 android:drawableLeft="@drawable/logcat_ic_search"
-                android:drawablePadding="15dp"
+                android:drawablePadding="5dp"
                 android:hint="@string/logcat_search_hint"
                 android:imeOptions="actionSearch"
                 android:inputType="textCapCharacters"
-                android:paddingStart="15dp"
-                android:paddingLeft="15dp"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
                 android:paddingTop="8dp"
-                android:paddingEnd="35dp"
-                android:paddingRight="35dp"
+                android:paddingEnd="15dp"
+                android:paddingRight="15dp"
                 android:paddingBottom="8dp"
                 android:singleLine="true"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/white"
                 android:textCursorDrawable="@null"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <ImageView
                 android:id="@+id/iv_log_empty"
@@ -88,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center_vertical"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:src="@drawable/logcat_ic_empty"
@@ -101,16 +103,16 @@
             android:id="@+id/iv_log_clean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:src="@drawable/logcat_ic_clear" />
 
         <ImageView
             android:id="@+id/iv_log_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:src="@drawable/logcat_ic_close" />
 
     </LinearLayout>
