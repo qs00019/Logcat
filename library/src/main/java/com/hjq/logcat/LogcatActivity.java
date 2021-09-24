@@ -97,9 +97,8 @@ public final class LogcatActivity extends Activity
         mListView.setOnItemClickListener(this);
         mListView.setOnItemLongClickListener(this);
         mSwitchView.setOnCheckedChangeListener(this);
-        mSearchView.addTextChangedListener(this);
-
         mSearchView.setText(LogcatConfig.getLogcatText());
+        mSearchView.addTextChangedListener(this);
         setLogLevel(LogcatConfig.getLogcatLevel());
 
         mSaveView.setOnClickListener(this);

@@ -9,9 +9,10 @@ import android.content.SharedPreferences;
  *    time   : 2020/01/24
  *    desc   : 日志配置
  */
-final class LogcatConfig {
+public final class LogcatConfig {
 
     private static SharedPreferences sConfig;
+    public static String LOGCAT_TEXT_DEFAULT = "";
 
     /**
      * 初始化
@@ -45,7 +46,7 @@ final class LogcatConfig {
 
     static String getLogcatText() {
         if(sConfig != null) {
-            return sConfig.getString(LOGCAT_TEXT, "");
+            return sConfig.getString(LOGCAT_TEXT, LOGCAT_TEXT_DEFAULT);
         }
         return "";
     }
